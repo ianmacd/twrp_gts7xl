@@ -1,2 +1,4 @@
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/omni_gts7xl.mk
+	$(LOCAL_DIR)/twrp_gts7xl.mk
+
+COMMON_LUNCH_CHOICES := twrp_gts7xl-eng

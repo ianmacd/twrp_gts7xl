@@ -17,11 +17,26 @@
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+# Release name
+PRODUCT_RELEASE_NAME := gts7xl
+
+# Inherit from common AOSP config
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+
+# Inherit some common TWRP stuff.
+$(call inherit-product, vendor/twrp/config/common.mk)
+
+# Inherit device configuration
+#$(call inherit-product, device/samsung/gts7xl/device.mk)
+
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
+
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/samsung/gts7xl/recovery/root,recovery/root)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := omni_gts7xl
+PRODUCT_NAME := twrp_gts7xl
 PRODUCT_DEVICE := gts7xl
 PRODUCT_MODEL := SM-T976B
 PRODUCT_BRAND := samsung
