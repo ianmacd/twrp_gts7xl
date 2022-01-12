@@ -35,17 +35,10 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 #<src>                                    <mnt_point>    <type>    <mnt_flags and options>    <fs_mgr_flags>
-
-# Logical partitions
-#
-#odm					  /odm		 ext4	  display="Odm";barrier=1,discard				      wait,logical,first_stage_mount
-odm					  /odm		 ext4
-#product					  /product	 ext4	   display="Product";barrier=1,discard                                wait,logical,first_stage_mount
-product					  /product	 ext4
-#system                                    /system        ext4	   display="System";barrier=1,discard                                 wait,logical,first_stage_mount
-system                                    /system        ext4
-#vendor                                    /vendor        ext4	   display="Vendor";barrier=1,discard                                 wait,logical,first_stage_mount
-vendor                                    /vendor        ext4
+odm                                       /odm            ext4    ro,barrier=1,discard          wait,logical,first_stage_mount
+product                                   /product        ext4    ro,barrier=1,discard          wait,logical,first_stage_mount
+system                                    /system         ext4    ro,barrier=1,discard          wait,logical,first_stage_mount
+vendor                                    /vendor         ext4    ro,barrier=1,discard          wait,logical,first_stage_mount
 
 # Physical partitions
 #
